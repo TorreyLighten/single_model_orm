@@ -1,0 +1,32 @@
+>>> User.objects.create(first_name = 'Bobo', last_name = 'Ostrich', email = 'bobobobobobobobobobobobobobo@email.com', age = 30)
+<User object: Bobo Ostrich bobobobobobobobobobobobobobo@email.com 30>
+>>> User.objects.create(first_name = 'Bethilla', last_name = 'Freumbles', email = 'Bfrumbly@email.com', age = 13)
+<User object: Bethilla Freumbles Bfrumbly@email.com 13>
+>>> User.objects.create(first_name = 'Chadwick', last_name = 'TheThird', email = 'C3P0@email.com', age = 24)
+<User object: Chadwick TheThird C3P0@email.com 24>
+>>>
+
+>>> User.objects.all()
+<QuerySet [<User object: Bobo Ostrich bobobobobobobobobobobobobobo@email.com 30>, <User object: Bethilla Freumbles Bfrumbly@email.com 13>, <User object: Chadwick TheThird C3P0@email.com 24>]>
+>>> User.objects.first()
+<User object: Bobo Ostrich bobobobobobobobobobobobobobo@email.com 30>
+>>> User.objects.last()
+<User object: Chadwick TheThird C3P0@email.com 24>
+>>>
+
+>>> up = User.objects.get(id=5)
+>>> up.last_name = 'Pancakes'
+>>> up.save()
+>>> User.objects.all()
+<QuerySet [<User object:4 Bobo Ostrich bobobobobobobobobobobobobobo@email.com 30>, <User object:5 Bethilla Pancakes Bfrumbly@email.com 13>, <User object:6 Chadwick TheThird C3P0@email.com 24>]>
+>>>
+
+>>> deluser = User.objects.get(id=6)
+>>> deluser.delete()
+(1, {'ormapp.User': 1})
+>>> User.objects.all()
+<QuerySet [<User object:4 Bobo Ostrich bobobobobobobobobobobobobobo@email.com 30>, <User object:5 Bethilla Pancakes Bfrumbly@email.com 13>]>
+>>>
+
+
+
